@@ -1,11 +1,18 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Page404 from "./components/Page404/Page404";
-import PakagePropAggersive from "./components/pakages-prop/PakagePropAggersive";
-import PakagePropNormal from "./components/pakages-prop/PakagePropNormal";
 import CU_Prop from "./components/crud/CU_Prop";
 import MainMange from "./components/management/MainMange";
 
+
+import StudenMain from './components/Pages/Student/StudenMain'
+import LessonsMain from './components/Pages/Lessons/LessonsMain'
+import AcademyMain from "./components/Pages/Academy/AcademyMain";
+import BaseFeildMain from "./components/Pages/Base-Feild/BaseFeildMain";
+import TestCourseMain from "./components/Pages/TestCourse/TestCourseMain";
+import ClassesMain from "./components/Pages/Classes/ClassesMain";
+import ManagementMain from "./components/Pages/Manegement/management";
+import SwAlert2 from "./components/Global/HOC/SwitetConfirm";
 
 function Main() {
 
@@ -18,29 +25,53 @@ function Main() {
           <Routes>
 
           //?  Redaircts
-            <Route path="/" element={<Navigate to={"/karbakhsh/admin-panel/normal/10"} />} />
+            <Route path="/" element={<Navigate to={"/students"} />} />
             <Route path="*" element={<Page404 />} />
-            <Route path="/karbakhsh/admin-panel/" element={<Navigate to={"/karbakhsh/admin-panel/normal/10"} />} />
-            <Route path="/karbakhsh/" element={<Navigate to={"/karbakhsh/admin-panel/normal/10"} />} />
+            <Route path="/admin-panel/" element={<Navigate to={"/admin-panel/normal/10"} />} />
+            <Route path="/" element={<Navigate to={"/admin-panel/normal/10"} />} />
 
-          //?  Pakages
-            <Route path="/karbakhsh/admin-panel/normal/:pakage" element={<PakagePropNormal />} />
-            <Route path="/karbakhsh/admin-panel/aggresive/:pakage" element={<PakagePropAggersive />} />
+          //?  Page student
+            <Route path="/students" element={<StudenMain />} />
+
+          //?  Page Lessons
+            <Route path="/lessons" element={<SwAlert2 >
+              {
+                (Confirms, Alert , headerMessage) => {
+                  return <LessonsMain Confirms={Confirms} Alert={Alert} headerMessage={headerMessage}/>
+                }}
+            </SwAlert2>} />
+
+          //?  Page Academys
+            <Route path="/academys" element={<AcademyMain />} />
+
+          //?  Page Base and Feild
+            <Route path="/base-feilds" element={<BaseFeildMain />} />
+
+          //?  Page Test Course
+            <Route path="/test-courses" element={<TestCourseMain />} />
+
+          //?  Page Classes
+            <Route path="/classes" element={<ClassesMain />} />
+
+          //?  Page Management
+            <Route path="/management" element={<ManagementMain />} />
+
+
 
           //?  Creat And Update Field
-            <Route path="/karbakhsh/admin-panel/normal/:pakage/:state/:lang" element={<CU_Prop />} >
+            <Route path="/admin-panel/normal/:pakage/:state/:lang" element={<CU_Prop />} >
               <Route path=":EditRow" />
             </Route>
-            <Route path="/karbakhsh/admin-panel/aggresive/:pakage/:state/:lang" element={<CU_Prop />} >
-            <Route path=":EditRow" />
+            <Route path="/admin-panel/aggresive/:pakage/:state/:lang" element={<CU_Prop />} >
+              <Route path=":EditRow" />
             </Route>
 
 
-          //?  Management
-            <Route path="/karbakhsh/admin-panel/management" element={<MainMange />} >
+            {/* //?  Management */}
+            {/* <Route path="/management" element={<MainMange />} >
               <Route path=":lang" />
               <Route path=":lang/:pakage" />
-            </Route>
+            </Route> */}
 
 
           </Routes>

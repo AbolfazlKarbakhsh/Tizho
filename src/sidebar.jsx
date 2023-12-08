@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useLocation, useParams } from "react-router-dom";
-import BtnHeaderSideBar from "./components/sidebar/btnHeaderSideBar"
-import Buttons_sidebar from "./components/sidebar/buttons-sidebar";
-import Header from "./components/global/header";
+
+import Header from "./components/Global/header";
+import Buttons_sidebar from "./components/Global/ButtonsSideBar/buttons-sidebar";
 
 const SideBar = React.forwardRef((props, ref) => {
-
-    const [OrangeBtn, setOrangeBtn] = useState('');
-    const [BlueBtn, setBlueBtn] = useState('');
     const params = useLocation()
-
-    useEffect(() => {
-        setOrangeBtn(params.pathname.split("/")[3])
-        setBlueBtn(params.pathname.split("/")[4])
-    });
+    const path = params.pathname.split("/")
 
     return (
         <div className="col-5 col-md-3 col-lg-2  gigamenu" ref={ref}>
@@ -21,35 +14,37 @@ const SideBar = React.forwardRef((props, ref) => {
 
 
                 {/* <!-- text head  --> */}
-                <Header fotherClass={"d-none d-md-block"}/>
+                <Header headerColor={props.headerColor}/>
 
 
-                {/* <!-- buttons  header--> */}
+                {/* <!-- buttons  Pges--> */}
                 <div className="AvatarFix sizeBtn pt-2 pb-2" >
-                    <BtnHeaderSideBar p={props.close} OrangeBtn={OrangeBtn} />
+                    <Buttons_sidebar path={path[1]} closeMobile={props.close}/>
                 </div>
 
 
-
-                {/* <!-- buttons  Pakages--> */}
-                <div className="AvatarFix sizeBtn pt-2 pb-2" >
-                    <Buttons_sidebar p={props.close} BlueBtn={BlueBtn} OrangeBtn={OrangeBtn} pakages={props.pakages} />
-                </div>
-
-
-                {/* <!-- buttons  header--> */}
+                {/* <!-- buttons  Mangage--> */}
                 <div className="AvatarFix sizeBtn pt-2 pb-2" >
 
-                    <NavLink to="/karbakhsh/admin-panel/management" className={`nav btn  btnRightNav IconSet effect  ${OrangeBtn == 'management' ? 'activeBtn2' : 'activeBtn'}`}
+                    <NavLink to="/management" className={`nav btn  btnRightNav IconSet effect ${path[1] == 'management' ? 'activeBtn3' : 'activeBtn'}`}
                         role="button" aria-pressed="false" onClick={props.close}>
-                        <span className="font2 w-75 items">مدیریت </span> <span
-                            className="bi bi-building-fill-gear  font4 ct bold items"></span>
+                        <span className="font2 w-75 items">مدیریت ادمین ها </span> <span
+                            className="bi bi-person-gear  font4 ct-green-dark bold items"></span>
+                    </NavLink>
+
+                    <NavLink to="/management" className={`nav btn  btnRightNav IconSet effect activeBtn `}
+                        role="button" aria-pressed="false" onClick={props.close}>
+                        <span className="font2 w-75 items">  خروج از حساب  </span> <span
+                            className="bi bi-escape  font4 ct-green-dark bold items"></span>
                     </NavLink>
                     
                 </div>
 
                 {/* <!-- exit btn  --> */}
-                <div className="IconSet d-block d-md-none cl-gray pointer effect mt-3" onClick={props.method}>
+                <div className="IconSet d-block d-md-none cl-gray pointer effect mt-3" onClick={()=>{
+                    props.method();
+                    props.setheaderColor('0')
+                }}>
                     <span className="bi-box-arrow-right font4 bold"></span><span className="font2">خروج</span>
                 </div>
 

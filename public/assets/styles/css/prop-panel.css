@@ -1,3 +1,24 @@
+#root {
+    height: 100vh;
+}
+
+:root {
+    --color-zard: #9fc7e0;
+    --color-kerem: #ffffffc0;
+    --color-blue: rgb(228, 248, 98);
+    --color-dark: #1c334e;
+    --sormei: #1c334e;
+    --sidebar: #1c334e;
+    --side-titr: #112134;
+    --main: #E8F2FC;
+    --green-dark:#00695C;
+    --green-light:#04b19d;
+
+}
+
+
+
+
 body.MainPanelAdmin {
     background: #0F1322;
 }
@@ -6,6 +27,41 @@ body.MainPanelAdmin {
 button {
     transition: all .3s;
 }
+
+
+/**  Asaide compnent  */
+
+/*? header titr  */
+@media screen and (min-width:768px) {
+    .header-aside-lg,
+    .header-aside-lg h1 {
+        background-color: var(--side-titr);
+        width: 120%;
+        padding: 4px 15px;
+        display: flex;
+        justify-content: center;
+        color: #e4e6e8;
+    }
+
+    .header-aside-lg {
+        margin-top: -10px;
+    }
+}
+
+@media screen and (max-width:768px) {
+
+    .header-aside-lg h1 {
+        color: #e4e6e8;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.titr-asiade-header {
+    color: #04b19d;
+    margin: 0 5px;
+}
+
 
 .btn {
     padding-right: 0 !important;
@@ -22,19 +78,18 @@ button {
 }
 
 .PanelCenter {
-    background-color: #FFFFFF;
+    background-color: var(--sidebar);
     width: 100%;
-    height: 90% !important;
-    border-radius: 4px;
+    height: 100% !important;
     padding: 0;
     margin: 0;
 }
 
 .CenterBox {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    justify-content: center;
+    /* display: flex; */
+    /* align-items: center; */
+    height: 100vh;
+    /* justify-content: center; */
 }
 
 .RightGigiMenu,
@@ -52,7 +107,7 @@ button {
 .panelMobilTopNav {
     height: auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: var(--side-titr);
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
 }
@@ -138,7 +193,7 @@ button {
 }
 
 div .span-head {
-    color: #FE4C24;
+    color: #ECD444;
 }
 
 .mainContent {
@@ -307,18 +362,7 @@ body {
     padding: 0;
 }
 
-#root {
-    height: 100vh;
-}
 
-:root {
-    --color-zard: #9fc7e0;
-    --color-kerem: #ffffffc0;
-    --color-blue: rgb(228, 248, 98);
-    --color-dark: #Ff5E24;
-    --sormei:#09081FD6;
-
-}
 
 .btn-dark {
     background: var(--color-dark);
@@ -399,13 +443,12 @@ button:visited {
 }
 
 .ct {
-    color: #FE4C24;
+    color: var(--green-light);
 }
 
-.eventColor {
-    color: #FE4C24;
+.ct-green-dark{
+    color: var(--green-dark);
 }
-
 /* events mouse */
 .pointer {
     cursor: pointer;
@@ -498,6 +541,7 @@ button:visited {
     transition: all .5s;
 
 }
+
 .badge1 {
     display: inline-block;
     padding: 0.35em 0.65em;
@@ -508,11 +552,11 @@ button:visited {
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: 0.25rem;
-  }
+}
 
-  .bg-dash2{
+.bg-dash2 {
     background: var(--color-dark);
-  }
+}
 
 .btnRightNav {
     width: 90%;
@@ -582,11 +626,13 @@ button:visited {
 }
 
 .activeBtn3 {
-    background: #0164d9 !important;
+    background: #00695C !important;
     transition: all .5s;
 }
 
-.activeBtn3:active , .activeBtn2:active  , .activeBtn:active  {
+.activeBtn3:active,
+.activeBtn2:active,
+.activeBtn:active {
     transition: all .5s;
 
 }
@@ -596,7 +642,7 @@ button:visited {
 }
 
 .activeBtn2 {
-    background: #FE4C24 !important;
+    background: #00695C !important;
     color: #fff !important;
     transition: all .5s;
 
@@ -617,7 +663,7 @@ button:visited {
     animation-duration: 1s;
 }
 
-.w-md-auto{
+.w-md-auto {
     width: auto !important;
 }
 
@@ -639,25 +685,25 @@ button:visited {
     }
 }
 
-.mr-2{
-    margin-right: .4rem ;
+.mr-2 {
+    margin-right: .4rem;
 }
 
-.mr-auto{
+.mr-auto {
     margin-right: auto;
 }
 
-.btn-global{
+.btn-global {
     background-color: var(--sormei) !important;
     /* color: var(--color-dark) !important; */
     color: #fff !important;
 }
 
-.body-tabel tr td{
+.body-tabel tr td {
     cursor: pointer;
 }
 
-.border-bottom-0-0{
+.border-bottom-0-0 {
     border-bottom: 0px !important;
 }
 
@@ -665,28 +711,28 @@ button:visited {
     background: var(--sormei);
 }
 
-.BoxTiels { 
+.BoxTiels {
     color: #fff !important;
 }
 
-.hr{
+.hr {
     height: 1px;
     background-color: #ccc;
     border: none;
 }
 
-option{
+option {
     font-family: 'Vazir';
 }
 
-.centerAll{
-    display:flex;
+.centerAll {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.btn-lang *{
-    background:#F3F1EF ;
+.btn-lang * {
+    background: #F3F1EF;
     font-family: Vazir;
 
 }
@@ -694,32 +740,32 @@ option{
 .ant-btn {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     margin: 10px !important;
 }
+
 .ant-btn span:first-child {
     margin-right: 0px !important;
     margin-bottom: 10px;
     font-size: 2rem;
     color: var(--color-dark);
 }
-.btn-lang button{
+
+.btn-lang button {
     width: 120px !important;
-    height: 120px ;
+    height: 120px;
     font-size: 1rem;
 }
 
 :where(.css-dev-only-do-not-override-1adbn6x).ant-card .ant-card-body {
     padding: 9px !important;
     border-radius: 0 0 8px 8px;
-  }
+}
 
- .anticon-dollar{
+.anticon-dollar {
     margin-right: 0px !important;
     margin-bottom: 10px;
     font-size: 2rem;
     color: var(--color-dark);
-  }
-
-  
+}

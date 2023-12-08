@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import Hr from '../global/Hr'
+import Hr from '../Global/Hr'
 
 function CU_Main() {
     const params = useParams()
